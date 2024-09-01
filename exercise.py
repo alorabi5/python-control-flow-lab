@@ -115,7 +115,7 @@ def calculate_dog_years():
     dogYears = 0
     for i in range(0, int(dogAge)):
         if i < 2:
-            dogYears = dogYears + 5
+            dogYears = dogYears + 10
         else:
             dogYears = dogYears + 7
     
@@ -187,10 +187,10 @@ def weather_advice():
 
 def determine_season():
     # Your control flow logic goes here
-    month = input('Enter the month of the year (Jan - Dec): ').upper()
+    month = input('Enter the month of the year (Jan - Dec): ').lower()
 
-    while month not in ('JanFebMarAprMayJunJulAugSepOctNovDec').upper():
-        month = input('Invalid Entries, Please enter the month of the year (Jan - Dec): ').upper()
+    while month not in ('JanFebMarAprMayJunJulAugSepOctNovDec').lower():
+        month = input('Invalid Entries, Please enter the month of the year (Jan - Dec): ').lower()
     
     day = input("Enter the day of the month: ")
 
@@ -205,7 +205,7 @@ def determine_season():
             return 'Spring'
         elif ( (month == 'jun' and day >= 21) or month == 'jul'  or month == 'aug' or (month == 'sep' and day <= 21)):
             return 'Summer'
-        else:
+        elif ( (month == 'sep' and day >= 22) or month == 'oct'  or month == 'nov' or (month == 'dec' and day <= 20)):
             return 'Fall'
     
     print(month, day, "is in", checkSeason(month, day))
